@@ -9,6 +9,10 @@ const RootRouter = () => {
   return (
     <RootStack.Navigator
       screenOptions={{
+        gestureEnabled: true,
+        animation: 'slide_from_right',
+        customAnimationOnGesture: true,
+        fullScreenGestureEnabled: true,
         headerShown: false,
       }}>
       <RootStack.Screen name="ChoosePortal" component={ChoosePortal} />
