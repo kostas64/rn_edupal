@@ -80,7 +80,7 @@ const Webview = ({route}) => {
         style={styles.webview}
         ref={webviewRef}
         onNavigationStateChange={onNavigationStateChange}
-        source={{uri: `https://${route?.params?.school?.schoolDomain}/login`}}
+        source={{uri: route?.params?.school?.schoolDomain}}
         injectedJavaScript={`
             window.ReactNativeWebView.postMessage(document.cookie);
           `}

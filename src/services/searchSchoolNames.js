@@ -1,7 +1,6 @@
 export const searchSchoolName = searchInput => {
   try {
-    console.log('calling searchSchoolName API ', searchInput);
-    return fetch('http://192.168.2.26:3000/get-schools', {
+    return fetch('https://mobile.edupal.gr/get-schools', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
