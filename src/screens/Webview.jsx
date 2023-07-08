@@ -1,23 +1,16 @@
-import React from 'react';
-import WebView from 'react-native-webview';
 import {
   View,
+  Alert,
+  Platform,
+  StatusBar,
   StyleSheet,
   Dimensions,
-  StatusBar,
-  Platform,
-  Alert,
 } from 'react-native';
+import React from 'react';
 import {io} from 'socket.io-client';
+import WebView from 'react-native-webview';
+import {NotificationUtils} from '../utils/NotificationUtils';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-
-// Notifications.setNotificationHandler({
-//   handleNotification: async () => ({
-//     shouldShowAlert: true,
-//     shouldPlaySound: false,
-//     shouldSetBadge: false,
-//   }),
-// });
 
 const isAndroid = Platform.OS === 'android';
 const {height} = Dimensions.get('window');
@@ -26,10 +19,26 @@ const Webview = ({route}) => {
   const insets = useSafeAreaInsets();
   const webviewRef = React.useRef(null);
   const [url, setUrl] = React.useState(null);
+  const [token, setToken] = React.useState(null);
 
-  // const socket = useRef(null);
+  const isLogged = !url?.includes('/login');
 
-  const SocketContext = React.createContext(null);
+  const connectToSockets = token => {
+    const endpoint = route?.params?.school?.schoolDomain; //'http://192.168.2.4:3001'
+    const socket = io(endpoint, {query: {token: token}});
+    console.log('Connecting to the socket...');
+
+    socket.on('connect', () => {
+      console.log('Socket connected!');
+    });
+
+    setTimeout(() => {
+      socket.on('mock', async data => {
+        console.log('Foreground notification data', data);
+        NotificationUtils.displayNotification(data);
+      });
+    }, 2000);
+  };
 
   const onMessage = event => {
     const {data} = event.nativeEvent;
@@ -42,9 +51,10 @@ const Webview = ({route}) => {
       const storeUsername = async () => {
         try {
           let token = 'Bearer ' + cookieData.token;
+          setToken(token);
           connectToSockets(token);
         } catch (e) {
-          //Alert.alert('Error! While saving username');
+          Alert.alert('Error! While saving username');
         }
       };
       storeUsername(cookieData);
@@ -55,45 +65,53 @@ const Webview = ({route}) => {
 
   //Handle status bar based on URL state
   React.useEffect(() => {
-    if (url?.includes('/login')) {
+    if (!isLogged) {
       StatusBar.setBarStyle('light-content');
       isAndroid && StatusBar.setTranslucent(true);
       isAndroid && StatusBar.setBackgroundColor('transparent');
     } else {
+      NotificationUtils.getNotificationToken(token);
       StatusBar.setBarStyle('dark-content');
       isAndroid && StatusBar.setTranslucent(false);
       isAndroid && StatusBar.setBackgroundColor('white');
     }
-  }, [url]);
+  }, [url, token]);
 
   return (
-    <View
-      style={[
-        {flex: 1},
-        !url?.includes('/login') && {
-          paddingTop: insets.top,
-          backgroundColor: 'white',
-        },
-      ]}>
-      <WebView
-        bounces={false}
-        style={styles.webview}
-        ref={webviewRef}
-        onNavigationStateChange={onNavigationStateChange}
-        source={{uri: route?.params?.school?.schoolDomain}}
-        injectedJavaScript={`
+    <View style={styles.container}>
+      <View
+        style={[
+          styles.innerContainer,
+          isLogged && {
+            paddingTop: insets.top,
+            backgroundColor: 'white',
+          },
+        ]}>
+        <WebView
+          bounces={false}
+          style={styles.webview}
+          ref={webviewRef}
+          onNavigationStateChange={onNavigationStateChange}
+          source={{uri: route?.params?.school?.schoolDomain}} //'http://192.168.2.4:3001'
+          injectedJavaScript={`
             window.ReactNativeWebView.postMessage(document.cookie);
           `}
-        onMessage={onMessage}
-      />
+          onMessage={onMessage}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {
+  container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: '#1c0a46',
+  },
+  innerContainer: {
+    height,
+    width: '99.9%',
+    alignSelf: 'center',
   },
   webview: {
     height,

@@ -11,6 +11,7 @@ import {
 import React from 'react';
 import {Pressable} from 'react-native';
 import dict from '../assets/json/dict.json';
+import notifee from '@notifee/react-native';
 import RNBootSplash from 'react-native-bootsplash';
 import SearchInput from '../components/SearchInput';
 import SchoolsList from '../components/SchoolsList';
@@ -18,7 +19,7 @@ import {searchSchoolName} from '../services/searchSchoolNames';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const isAndroid = Platform.OS === 'android';
-const {width, height} = Dimensions.get('window');
+const {width, height} = Dimensions.get('screen');
 
 const ChoosePortal = () => {
   const insets = useSafeAreaInsets();
@@ -56,11 +57,16 @@ const ChoosePortal = () => {
       });
   };
 
-  React.useEffect(() => {
+  const initApp = async () => {
     RNBootSplash.hide();
+    await notifee.requestPermission();
     StatusBar.setBarStyle('light-content');
     isAndroid && StatusBar.setTranslucent(true);
     isAndroid && StatusBar.setBackgroundColor('transparent');
+  };
+
+  React.useEffect(() => {
+    initApp();
   }, []);
 
   return (

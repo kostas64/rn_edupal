@@ -10,6 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@notifee/react-native": "^7.8.0",
+    "@react-native-firebase/app": "^18.1.0",
+    "@react-native-firebase/messaging": "^18.1.0",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "@shopify/flash-list": "^1.4.3",

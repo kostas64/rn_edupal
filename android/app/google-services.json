@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "832336224219",
+    "project_id": "edupal-mobile",
+    "storage_bucket": "edupal-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832336224219:android:0bca2d6c1f9224a934d1fe",
+        "android_client_info": {
+          "package_name": "com.edupal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832336224219-5e4g0iono7cecul0qkc08gn331u1bvnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSi40k7n8L3nOX1lBOcYseZ4R1yUBW80s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832336224219-5e4g0iono7cecul0qkc08gn331u1bvnk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "832336224219-8nhsq5u2fcv195m4nskb5t3ca321oo5j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.edupal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

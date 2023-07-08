@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "Firebase.h"
 #import "RNBootSplash.h"
 #import <React/RCTBundleURLProvider.h>
 
@@ -10,6 +11,7 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
+  [FIRApp configure];
   
   UIView *rootView = self.window.rootViewController.view;
   rootView.backgroundColor = [[UIColor alloc] initWithRed:0.38 green:0.13 blue:0.91 alpha:1];
