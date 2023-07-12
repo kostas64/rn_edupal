@@ -12,7 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		703010132A5838D2003B5211 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 703010122A5838D2003B5211 /* GoogleService-Info.plist */; };
+		70E38ECB2A5F24C4003C084A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70E38ECA2A5F24C4003C084A /* GoogleService-Info.plist */; };
 		79C1CD71070546B704EBE660 /* Pods_edupal_edupalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E43B85792FA5AE126A65FCF /* Pods_edupal_edupalTests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,7 @@
 		3B4392A12AC88292D35C810B /* Pods-edupal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edupal.debug.xcconfig"; path = "Target Support Files/Pods-edupal/Pods-edupal.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-edupal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edupal.release.xcconfig"; path = "Target Support Files/Pods-edupal/Pods-edupal.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-edupal-edupalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edupal-edupalTests.debug.xcconfig"; path = "Target Support Files/Pods-edupal-edupalTests/Pods-edupal-edupalTests.debug.xcconfig"; sourceTree = "<group>"; };
-		703010122A5838D2003B5211 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		70E38ECA2A5F24C4003C084A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = edupal/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-edupal-edupalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edupal-edupalTests.release.xcconfig"; path = "Target Support Files/Pods-edupal-edupalTests/Pods-edupal-edupalTests.release.xcconfig"; sourceTree = "<group>"; };
 		8E43B85792FA5AE126A65FCF /* Pods_edupal_edupalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_edupal_edupalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				703010122A5838D2003B5211 /* GoogleService-Info.plist */,
+				70E38ECA2A5F24C4003C084A /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* edupal */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* edupalTests */,
@@ -248,7 +248,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				703010132A5838D2003B5211 /* GoogleService-Info.plist in Resources */,
+				70E38ECB2A5F24C4003C084A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +517,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.edupal.ios;
 				PRODUCT_NAME = edupal;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -544,7 +544,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.edupal.ios;
 				PRODUCT_NAME = edupal;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

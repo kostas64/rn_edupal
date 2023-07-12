@@ -1,4 +1,4 @@
-package com.edupal;
+package com.edupal.android;
 
 import android.os.Bundle;
 

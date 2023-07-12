@@ -1,4 +1,4 @@
-package com.edupal;
+package com.edupal.android;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

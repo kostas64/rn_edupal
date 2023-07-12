@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:832336224219:android:0bca2d6c1f9224a934d1fe",
+        "mobilesdk_app_id": "1:832336224219:android:e739d46220be88ff34d1fe",
         "android_client_info": {
-          "package_name": "com.edupal"
+          "package_name": "com.edupal.android"
         }
       },
       "oauth_client": [

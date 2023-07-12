@@ -94,9 +94,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.edupal"
+    namespace "com.edupal.android"
     defaultConfig {
-        applicationId "com.edupal"
+        applicationId "com.edupal.android"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
