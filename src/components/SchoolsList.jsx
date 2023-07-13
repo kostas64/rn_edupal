@@ -12,7 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 
 const {width} = Dimensions.get('window');
 
-const SchoolsList = ({data}) => {
+const SchoolsList = ({data, loadingApi, input}) => {
   const navigation = useNavigation();
 
   const onSchoolPress = school => {
@@ -39,15 +39,27 @@ const SchoolsList = ({data}) => {
     );
   };
 
+  if (loadingApi || input.length < 2) return null;
+
   return (
-    <View style={[styles.listContainer, {height: data.length * 56 + 18}]}>
-      <FlashList
-        data={data}
-        renderItem={renderItem}
-        estimatedItemSize={48}
-        keyboardShouldPersistTaps={'handled'}
-      />
-    </View>
+    input?.length > 0 && (
+      <View
+        style={[
+          styles.listContainer,
+          {height: data.length > 0 ? data.length * 56 + 18 : 42},
+        ]}>
+        {data.length > 0 ? (
+          <FlashList
+            data={data}
+            renderItem={renderItem}
+            estimatedItemSize={48}
+            keyboardShouldPersistTaps={'handled'}
+          />
+        ) : (
+          <Text style={styles.noResultsLabel}>Δεν βρέθηκαν αποτελέσματα</Text>
+        )}
+      </View>
+    )
   );
 };
 
@@ -79,6 +91,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'rgba(0,0,0,0.5)',
     width: width - 122,
+  },
+  noResultsLabel: {
+    fontSize: 16,
+    fontWeight: '500',
+    alignSelf: 'center',
   },
 });
 

@@ -30,7 +30,7 @@ export class NotificationUtils {
       this.displayNotification(remoteMessage.data);
     });
 
-    notifee.onBackgroundEvent(async ({type, detail}) => {
+    return notifee.onBackgroundEvent(async ({type, detail}) => {
       const {notification, pressAction} = detail;
       console.log('Background notifation 2', notification, pressAction);
     });

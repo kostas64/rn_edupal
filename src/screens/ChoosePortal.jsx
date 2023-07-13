@@ -7,9 +7,9 @@ import {
   StyleSheet,
   Dimensions,
   ImageBackground,
+  TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {Pressable} from 'react-native';
 import dict from '../assets/json/dict.json';
 import notifee from '@notifee/react-native';
 import RNBootSplash from 'react-native-bootsplash';
@@ -79,7 +79,7 @@ const ChoosePortal = () => {
         source={require('../assets/images/favicon.png')}
         style={styles.favicon}
       />
-      <Pressable
+      <TouchableOpacity
         style={[
           styles.container,
           {
@@ -93,8 +93,12 @@ const ChoosePortal = () => {
           loadingApi={loadingApi}
           clearData={clearData}
         />
-      </Pressable>
-      {searchRes.length > 0 && <SchoolsList data={searchRes} />}
+      </TouchableOpacity>
+      <SchoolsList
+        input={searchValue}
+        data={searchRes}
+        loadingApi={loadingApi}
+      />
     </>
   );
 };

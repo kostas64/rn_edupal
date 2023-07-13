@@ -13,7 +13,7 @@ import {NotificationUtils} from '../utils/NotificationUtils';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const isAndroid = Platform.OS === 'android';
-const {height} = Dimensions.get('window');
+const {height} = Dimensions.get('screen');
 
 const Webview = ({route}) => {
   const insets = useSafeAreaInsets();
@@ -32,22 +32,24 @@ const Webview = ({route}) => {
       console.log('Socket connected!');
     });
 
-    setTimeout(() => {
-      socket.on('mock', async data => {
-        console.log('Foreground notification data', data);
-        NotificationUtils.displayNotification(data);
-      });
-    }, 2000);
+    socket.on('mock', async data => {
+      console.log('Foreground notification data', data);
+      NotificationUtils.displayNotification(data);
+    });
   };
 
   const onMessage = event => {
     const {data} = event.nativeEvent;
+
     if (data) {
       let start = data.indexOf('{');
       if (start === -1) return;
 
       let cookieJson = data.substring(start);
       let cookieData = JSON.parse(cookieJson);
+
+      if (token === 'Bearer ' + cookieData.token) return;
+
       const storeUsername = async () => {
         try {
           let token = 'Bearer ' + cookieData.token;
@@ -57,6 +59,7 @@ const Webview = ({route}) => {
           Alert.alert('Error! While saving username');
         }
       };
+
       storeUsername(cookieData);
     }
   };

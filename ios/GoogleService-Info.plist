@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>832336224219-kdq72r6nhti7pnlg6tie89f2atoa4ini.apps.googleusercontent.com</string>
+	<string>832336224219-dic4i7to119sg1eopr6p67cbtfqru3fb.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.832336224219-kdq72r6nhti7pnlg6tie89f2atoa4ini</string>
+	<string>com.googleusercontent.apps.832336224219-dic4i7to119sg1eopr6p67cbtfqru3fb</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCSP21k3pprdEz3jA7Kkp7obXH0WTpS9Ss</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.edupal.ios</string>
+	<string>com.edupal.sis.ios</string>
 	<key>PROJECT_ID</key>
 	<string>edupal-mobile</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:832336224219:ios:0f2f04288cc0661634d1fe</string>
+	<string>1:832336224219:ios:566d9e703ee3dc1034d1fe</string>
 </dict>
 </plist>

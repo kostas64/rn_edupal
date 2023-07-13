@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:832336224219:android:e739d46220be88ff34d1fe",
+        "mobilesdk_app_id": "1:832336224219:android:a2a16f138a13eeaa34d1fe",
         "android_client_info": {
-          "package_name": "com.edupal.android"
+          "package_name": "com.edupal.sis.android"
         }
       },
       "oauth_client": [
@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "832336224219-8nhsq5u2fcv195m4nskb5t3ca321oo5j.apps.googleusercontent.com",
+              "client_id": "832336224219-6o7aaiha5ts1ecpo5m4docj9lfcjild3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "org.reactjs.native.example.edupal"
+                "bundle_id": "com.edupa.sis.ios"
               }
             }
           ]
